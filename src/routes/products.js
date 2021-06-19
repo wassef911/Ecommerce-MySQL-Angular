@@ -17,8 +17,8 @@ router.get("/", async (req, res) => {
         "c.title as category",
         "p.title as name",
         "p.price",
-        "p.quantity",
         "p.description",
+        "p.quantity",
         "p.image",
         "p.id",
       ])
