@@ -3,12 +3,32 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUI = require("swagger-ui-express");
 
 // Import Routes lahne
-const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/users");
+const productsRouter = require("./routes/products");
+const orderRouter = require("./routes/order");
 
 const app = express();
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "ClothStore API",
+      description: "Backend Api",
+      contact: {
+        name: "Wassef Ben Ahmed",
+      },
+      servers: "http://localhost:3999",
+    },
+  },
+  apis: ["app.js", ".routes/*.js"],
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use(
   cors({
@@ -25,5 +45,6 @@ app.use(cookieParser());
 // Use Routes
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/orders", orderRouter);
 
 module.exports = app;
