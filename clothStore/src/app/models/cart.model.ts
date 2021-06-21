@@ -1,4 +1,3 @@
-import { Observable } from "rxjs";
 import { ProductModelServer } from "./product.model";
 
 export interface CartModelServer {
@@ -8,11 +7,10 @@ export interface CartModelServer {
     numInCart: number
   }]
 }
-
-export interface ServerResponse {
-  total: number;
+export interface CartModelPublic {
+  total: Number;
   prodData: [{
-    id: number;
-    inCart: number;
+    id: Number,
+    incart: Number
   }]
 }
