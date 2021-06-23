@@ -492,9 +492,6 @@ textarea.input {
   padding: 15px 0px;
 }
 
-.header-search form {
-  position: relative;
-}
 
 .header-search form .input-select {
   margin-right: -4px;
@@ -668,7 +665,6 @@ textarea.input {
 .main-nav > li > a:focus,
 .main-nav > li.active > a {
   color: var(--main-color);
-  background-color: transparent;
 }
 
 .main-nav > li > a:after {

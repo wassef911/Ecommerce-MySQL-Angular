@@ -6,7 +6,7 @@ const cors = require("cors");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 
-// Import Routes lahne
+
 const usersRouter = require("./routes/users");
 const productsRouter = require("./routes/products");
 const orderRouter = require("./routes/order");
@@ -24,11 +24,15 @@ const swaggerOptions = {
       servers: "http://localhost:3999",
     },
   },
-  apis: ["app.js", ".routes/*.js"],
+  apis: ["./app.js", "./routes/*.js"],
 };
-
+/*
+https://www.npmjs.com/package/swagger-ui-express
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
-app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use("/api/docs", swaggerUI.serve);
+app.use('/api/docs', swaggerUI.setup(swaggerDocs));
+*/
+
 
 app.use(
   cors({
