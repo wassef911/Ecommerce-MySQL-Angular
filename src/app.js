@@ -6,9 +6,9 @@ const cors = require("cors");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 
-
 const usersRouter = require("./routes/users");
 const productsRouter = require("./routes/products");
+const authRouter = require("./routes/auth");
 const orderRouter = require("./routes/order");
 
 const app = express();
@@ -27,12 +27,12 @@ const swaggerOptions = {
   apis: ["./app.js", "./routes/*.js"],
 };
 /*
+https://blog.logrocket.com/documenting-your-express-api-with-swagger/
 https://www.npmjs.com/package/swagger-ui-express
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use("/api/docs", swaggerUI.serve);
 app.use('/api/docs', swaggerUI.setup(swaggerDocs));
 */
-
 
 app.use(
   cors({
@@ -47,8 +47,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Use Routes
-app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/orders", orderRouter);
 
 module.exports = app;
