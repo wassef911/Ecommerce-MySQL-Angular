@@ -40,10 +40,10 @@ router.get("/", async (req, res) => {
 });
 
 /* GET ONE PRODUCT*/
-router.get("/:prodId", (req, res) => {
+router.get("/:prodId", async (req, res) => {
   try {
     let productId = req.params.prodId;
-    database
+    const prod = await database
       .table("products as p")
       .join([
         {
@@ -62,15 +62,12 @@ router.get("/:prodId", (req, res) => {
         "p.images",
       ])
       .filter({ "p.id": productId })
-      .get()
-      .then((prod) => {
-        console.log(prod);
-        if (prod) {
-          res.status(200).json(prod);
-        } else {
-          res.json({ message: `No product found with id ${productId}` });
-        }
-      });
+      .get();
+    if (prod) {
+      res.status(200).json(prod);
+    } else {
+      res.json({ message: `No product found with id ${productId}` });
+    }
   } catch (err) {
     console.log(err);
     return res.status(404).json({ message: err.message });
@@ -78,7 +75,7 @@ router.get("/:prodId", (req, res) => {
 });
 
 /* GET ALL PRODUCTS FROM ONE CATEGORY */
-router.get("/category/:catName", (req, res) => {
+router.get("/category/:catName", async (req, res) => {
   try {
     // Sending Page Query Parameter is mandatory http://localhost:3636/api/products/category/categoryName?page=1
     let page =
@@ -100,7 +97,7 @@ router.get("/category/:catName", (req, res) => {
     // Get category title value from param
     const cat_title = req.params.catName;
 
-    database
+    const prods = await database
       .table("products as p")
       .join([
         {
@@ -119,19 +116,17 @@ router.get("/category/:catName", (req, res) => {
       ])
       .slice(startValue, endValue)
       .sort({ id: 1 })
-      .getAll()
-      .then((prods) => {
-        if (prods.length > 0) {
-          res.status(200).json({
-            count: prods.length,
-            products: prods,
-          });
-        } else {
-          res.json({
-            message: `No products found matching the category ${cat_title}`,
-          });
-        }
+      .getAll();
+    if (prods.length > 0) {
+      return res.status(200).json({
+        count: prods.length,
+        products: prods,
       });
+    } else {
+      return res.json({
+        message: `No products found matching the category ${cat_title}`,
+      });
+    }
   } catch (err) {
     console.log(err);
     return res.status(404).json({ message: err.message });

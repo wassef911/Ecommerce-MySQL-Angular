@@ -261,7 +261,6 @@ export class CartService {
     })
   }
 
-
   private CalculateTotal() {
     let Total = 0;
 
