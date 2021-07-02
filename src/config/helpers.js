@@ -1,19 +1,19 @@
 const Mysqli = require("mysqli");
 
-let conn = new Mysqli({
+const conn = new Mysqli({
   Host: "localhost", // IP/domain name
-  post: 3306, // port, default 3306
-  user: "wassef", // username
+  port: 3308, // port, default 3306
+  user: "root", // username
   passwd: "", // password
   db: "cloth_store",
 });
 
-let db = conn.emit(false, "");
+const database = conn.emit(false, "");
 
 const secret = "1SBz93MsqTs7KgwARcB0I0ihpILIjk3w";
 
 module.exports = {
-  database: db,
+  database,
   secret: secret,
   validJWTNeeded: (req, res, next) => {
     if (req.headers["authorization"]) {
