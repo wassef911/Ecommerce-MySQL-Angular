@@ -492,7 +492,6 @@ textarea.input {
   padding: 15px 0px;
 }
 
-
 .header-search form .input-select {
   margin-right: -4px;
   border-radius: 40px 0px 0px 40px;
@@ -777,6 +776,7 @@ textarea.input {
   position: relative;
   background-color: #e4e7ed;
   z-index: -1;
+  width: 23em;
 }
 
 .shop .shop-img > img {
