@@ -23,11 +23,11 @@ export class ProductService {
 
   /* GET PRODUCTS FROM ONE CATREGORY */
   getProductsFromCategory(catName: number): Observable<ProductModelServer[]> {
-    return this.http.get<ProductModelServer[]>(this.SERVER_URL + "/product/category/" + catName);
+    return this.http.get<ProductModelServer[]>(this.SERVER_URL + "/products/category/" + catName);
   }
 
   /* GET SINGLE PRODUCT FROM SERVER */
   getSingleProduct(id: number): Observable<ProductModelServer> {
-    return this.http.get<ProductModelServer>(this.SERVER_URL + "/product" + id);
+    return this.http.get<ProductModelServer>(this.SERVER_URL + "/products/" + id);
   }
 }
