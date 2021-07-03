@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     NoopAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      toastClass: 'toast toast-bootstrap-compatibility-fix'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
