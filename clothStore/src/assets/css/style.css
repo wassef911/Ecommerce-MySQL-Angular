@@ -710,6 +710,7 @@ textarea.input {
     transform: translateX(-100%);
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
+    color: white;
   }
   #responsive-nav.active {
     -webkit-transform: translateX(0%);
@@ -720,6 +721,7 @@ textarea.input {
   .main-nav {
     margin: 0px;
     float: none;
+    color: white;
   }
   .main-nav > li {
     display: block;

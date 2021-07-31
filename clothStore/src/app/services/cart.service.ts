@@ -236,14 +236,11 @@ export class CartService {
 
   CheckoutFromCart(userId: number) {
 
-    this.httpClient.post(`${this.ServerURL}orders/payment`, null).subscribe((res: any) => {
+    this.httpClient.post(`${this.ServerURL}/orders/payment`, null).subscribe((res: any) => {
       console.clear();
-
       if (res.success) {
-
-
         this.resetServerData();
-        this.httpClient.post(`${this.ServerURL}orders/new`, {
+        this.httpClient.post(`${this.ServerURL}/orders/new`, {
           userId: userId,
           products: this.cartDataClient.prodData
         }).subscribe((data: any) => {

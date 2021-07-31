@@ -1,3 +1,13 @@
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <div class="container" style="width: 50%;">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<!-- /NAVIGATION -->
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -71,7 +81,7 @@
             <!-- Products tab & slick -->
             <div class="col-md-12 box-shadow">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+                    <div class="col-md-4 col-sm-6 productHover" *ngFor="let p of products">
                         <div class="card my-2">
                             <div class="image">
                                 <img [src]="p.image" alt="{{p.name}}" class="card-img-top img img-responsive full-width"
