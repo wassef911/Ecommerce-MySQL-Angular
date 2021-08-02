@@ -1,5 +1,16 @@
 <!-- HEADER -->
 <header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container" style="height: 25px;">
+            <ul class="header-links pull-right">
+                <li><a routerLink="/profile"><i class="fa fa-user-o"></i>
+                        {{!authState?"Login":"My Account"}}
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /TOP HEADER -->
     <!-- MAIN HEADER -->
     <div id="header">
         <!-- container -->
