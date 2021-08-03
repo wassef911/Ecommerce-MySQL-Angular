@@ -21,6 +21,7 @@ import {
   GoogleLoginProvider
 } from 'angularx-social-login';
 import { LoginComponent } from './components/login/login.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LoginComponent } from './components/login/login.component';
     ProductComponent,
     ThankYouComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

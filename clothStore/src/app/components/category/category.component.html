@@ -1,0 +1,36 @@
+<div class="container">
+    <ngx-spinner *ngIf="loading" bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+    <div *ngIf="products" class="col-md-12 box-shadow">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 productHover" *ngFor="let p of products">
+                <div class="card my-2">
+                    <div class="image">
+                        <img [src]="p.image" alt="{{p.name}}" class="card-img-top img img-responsive full-width"
+                            style="cursor: pointer;" (click)="selectProduct(p.id)">
+                    </div>
+                    <div class="card-header">
+                        <div class="card-title">
+                            <p>{{p.name | titlecase}}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6>{{p.description.substr(0, 25)}} ...</h6>
+                        <p class="lead">{{p.price | currency:'TND'}}</p>
+                    </div>
+
+                    <div class="row d-flex justify-content-center border-primary my-3">
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-primary btn-sm btn-block" [class.disabled]="p.quantity < 1"
+                                [class.btn-outline-danger]="p.quantity < 1" (click)="AddToCart(p.id)">
+                                {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart" }} </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

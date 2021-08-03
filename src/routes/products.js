@@ -102,7 +102,7 @@ router.get("/category/:catName", async (req, res) => {
       .join([
         {
           table: "categories as c",
-          on: `c.id = p.cat_id WHERE c.title LIKE '%${cat_title}%'`,
+          on: `c.id = p.cat_id WHERE c.title LIKE '${cat_title}%'`,
         },
       ])
       .withFields([
