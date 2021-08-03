@@ -42,7 +42,7 @@ export class UserService {
   }
 }
 
-interface ResponseModal {
+export interface ResponseModal {
   token: string;
   auth: boolean;
   email: string;

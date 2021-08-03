@@ -18,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
-  GoogleLoginProvider,
-  FacebookLoginProvider
+  GoogleLoginProvider
 } from 'angularx-social-login';
 import { LoginComponent } from './components/login/login.component';
 
@@ -43,6 +42,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    FormsModule,
     ReactiveFormsModule,
     FormsModule,
     NoopAnimationsModule,
